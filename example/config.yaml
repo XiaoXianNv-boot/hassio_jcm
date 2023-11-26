@@ -20,6 +20,8 @@ options:
   password: "admin"
   port: "8888"
 schema:
-  message: "str?"
+  user: "str?"
+  password: "str?"
+  port: "str?"
 image: "ghcr.io/home-assistant/{arch}-addon-example"
 advanced: false
