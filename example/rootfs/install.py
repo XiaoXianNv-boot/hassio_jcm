@@ -97,7 +97,7 @@ sh.install("","","","","",pr)
 
 fs = open(install_dir.decode("utf-8") + "/run.sh","wb")
 fs.write(b"#!/bin/bashio\n")
-fs.write(b"cd " + install_dir + b"\n")
+fs.write(b"cd " + install_dir + b"\nbashio::log.info run jcm.py\n")
 fs.write(b"python3 server/jcm.py hass $(bashio::config 'port') $(bashio::config 'user') $(bashio::config 'password')")
 fs.close()
 os.system('chmod 777 ' + install_dir.decode("utf-8") + "/run.sh")
