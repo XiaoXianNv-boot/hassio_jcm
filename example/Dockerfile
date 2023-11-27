@@ -127,14 +127,14 @@ RUN \
     cd jcm_install && \
     mkdir -p Tools && \
     cd Tools && \
-    curl -#fL -o install.py -C - $dir/install.py && \
+    curl -#fL -o install.py -C - https://github.com/XiaoXianNv-boot/jcm/releases/download/Preview/install.py && \
     cd .. && \
     mkdir -p lib && \
     cd lib && \
     mkdir -p pkg && \
     cd pkg && \
-    curl -#fL -o APP_V0.2.pkg -C - $dir/APP_V0.2.pkg && \
-    curl -#fL -o main_V0.2.pkg -C - $dir/main_V0.2.pkg && \
+    curl -#fL -o APP_V0.2.pkg -C - https://github.com/XiaoXianNv-boot/jcm/releases/download/Preview/APP_V0.2.pkg && \
+    curl -#fL -o main_V0.2.pkg -C - https://github.com/XiaoXianNv-boot/jcm/releases/download/Preview/main_V0.2.pkg && \
     cd .. && \
     cd .. && \
     python3 /install.py
