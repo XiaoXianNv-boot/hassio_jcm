@@ -38,7 +38,7 @@ install_diri = b"/usr/jcm"
 print(text["name"])
 install_dir = b''
 install_dir = install_diri
-install_port = input(text["port"] + "[" + str(install_porti) + "] ")
+install_port = install_porti
 install_boot = install_booti
 print("#############################")
 print(text["insdir"] + "" + install_dir.decode("utf-8"))
