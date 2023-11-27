@@ -102,4 +102,4 @@ fs.write(b"python3 server/jcm.py")
 fs.close()
 os.system('chmod 777 ' + install_dir.decode("utf-8") + "/run.sh")
 
-os.system('cp ' + install_dir.decode("utf-8") + "/run.sh /")
+os.system('cp -rfv ' + install_dir.decode("utf-8") + "/run.sh /run.sh")
