@@ -88,7 +88,7 @@ COPY rootfs /
 COPY s6-overlay /package/admin/s6-overlay-${S6_OVERLAY_VERSION}/
 
 # Entrypoint & CMD
-ENTRYPOINT [ "/init" ]
+#ENTRYPOINT [ "/init" ]
 
 # Build arugments
 ARG BUILD_DATE
