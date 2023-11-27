@@ -96,7 +96,7 @@ sh = imp.load_source(sh,sh)
 sh.install("","","","","",pr)
 
 fs = open(install_dir.decode("utf-8") + "/run.sh","wb")
-fs.write(b"#!/bin/sh\n")
+fs.write(b"#!/bin/bashio\n")
 fs.write(b"cd " + install_dir + b"\n")
 fs.write(b"python3 server/jcm.py")
 fs.close()
