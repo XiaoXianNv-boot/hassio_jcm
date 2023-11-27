@@ -15,6 +15,12 @@ map:
   - share:rw 
   - homeassistant_config:rw
   - media:rw
+  - addon_config:rw
+  - ssl:rw
+  - addons:rw
+  - backup:rw
+  - share:rw
+  - all_addon_configs:rw
 options:
   user: "admin"
   password: "admin"
