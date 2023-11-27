@@ -32,7 +32,7 @@ def pr(new_client_socket,data):
 OS_ = platform.system()
 
 
-install_diri = b"/usr/jcm"
+install_diri = b"/config/jcm"
 
 
 print(text["name"])

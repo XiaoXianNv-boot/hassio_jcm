@@ -30,7 +30,9 @@ ARG S6_OVERLAY_VERSION="3.1.6.2"
 ARG TEMPIO_VERSION="2021.09.0"
 RUN \
     apt-get update \
-    \
+    && mkdir -p /config\
+    && mkdir -p /config\
+    && mkdir -p /config\
     && apt-get install -y --no-install-recommends \
         bash=5.2.15-2+b2 \
         ca-certificates=20230311 \
@@ -39,11 +41,17 @@ RUN \
         tzdata=2023c-5 \
         xz-utils=5.4.1-0.2 \
         python3 \
-        python3-pip \
-        python3-dev \
         gcc \
         wget \
-    \
+    
+    && mkdir -p /config \
+    && mkdir -p /config/jcm \
+    && mkdir -p /config/jcm/dist-packages \
+    && rm -rf /usr/lib/python3/dist-packages \
+    && ln -s /config/jcm/dist-packages /usr/lib/python3/dist-packages \
+    && apt install \
+        python3-pip \
+        python3-dev \
     && c_rehash \
     \
     && S6_ARCH="${BUILD_ARCH}" \
@@ -80,7 +88,10 @@ RUN \
         "https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${BUILD_ARCH}" \
     && chmod a+x /usr/bin/tempio \
     && rm -fr \
-        /tmp/*
+        /tmp/* \
+        /var/lib/apt/lists \
+    && mkdir -p /config/jcm/lists \
+    && ln -s /config/jcm/lists /var/lib/apt/lists
 
 # Copy root filesystem
 COPY rootfs /
