@@ -11,7 +11,7 @@ arch:
   - amd64
   - i386
 ingress: true
-ingress_port: 1337
+ingress_port: 8888
 init: false
 map:
   - share:rw 
