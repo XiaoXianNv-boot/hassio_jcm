@@ -23,5 +23,4 @@ schema:
   user: "str?"
   password: "str?"
   port: "str?"
-image: "ghcr.io/home-assistant/{arch}-addon-example"
 advanced: false
