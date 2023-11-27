@@ -79,7 +79,7 @@ RUN \
     && apt-get clean \
     && rm -fr \
         /tmp/* \
-        /var/{cache,log}/* 
+        /var/{cache,log}/*
 
 # Copy root filesystem
 COPY rootfs /
