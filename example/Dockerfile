@@ -39,6 +39,9 @@ RUN \
         tzdata=2023c-5 \
         xz-utils=5.4.1-0.2 \
         python3 \
+        python3-pip \
+        python3-dev \
+        gcc \
     \
     && c_rehash \
     \
