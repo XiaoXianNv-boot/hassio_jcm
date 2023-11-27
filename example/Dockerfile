@@ -42,6 +42,7 @@ RUN \
         python3-pip \
         python3-dev \
         gcc \
+        wget \
     \
     && c_rehash \
     \
