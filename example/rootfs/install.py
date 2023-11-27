@@ -38,7 +38,7 @@ install_diri = b"/usr/jcm"
 print(text["name"])
 install_dir = b''
 install_dir = install_diri
-install_port = install_porti
+install_port = $(bashio::config 'port')
 install_boot = install_booti
 print("#############################")
 print(text["insdir"] + "" + install_dir.decode("utf-8"))
@@ -101,5 +101,18 @@ fs.write(b"cd " + install_dir + b"\n")
 fs.write(b"python3 server/jcm.py")
 fs.close()
 os.system('chmod 777 ' + install_dir.decode("utf-8") + "/run.sh")
+user=$(bashio::config 'user')
+password=$(bashio::config 'password')
+
+if os.path.exists(".config/main/user") == False:
+    if os.path.exists(".config") == False:
+        os.mkdir(".config")
+    if os.path.exists(".config/main") == False:
+        os.mkdir(".config/main")
+    print(text["init"])
+    user = input(text["user"]).encode("utf-8")
+    password = input(text["passwor"]).encode("utf-8")
+    tools = imp.load_source('tools',"Tools/Tools.py")
+    tools.newuser(user,password,b"0")
 
 os.system('cp -rfv ' + install_dir.decode("utf-8") + "/run.sh /run.sh")
