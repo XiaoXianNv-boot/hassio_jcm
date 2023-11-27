@@ -76,13 +76,10 @@ RUN \
         "https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${BUILD_ARCH}" \
     && chmod a+x /usr/bin/tempio \
     \
-    && apt-get purge -y --auto-remove \
-        xz-utils \
     && apt-get clean \
     && rm -fr \
         /tmp/* \
-        /var/{cache,log}/* \
-        /var/lib/apt/lists/*
+        /var/{cache,log}/* 
 
 # Copy root filesystem
 COPY rootfs /
