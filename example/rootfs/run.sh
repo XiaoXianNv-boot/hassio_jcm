@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sleep 999
+python3 install.py
