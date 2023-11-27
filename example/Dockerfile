@@ -75,11 +75,8 @@ RUN \
     && curl -L -s -o /usr/bin/tempio \
         "https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${BUILD_ARCH}" \
     && chmod a+x /usr/bin/tempio \
-    \
-    && apt-get clean \
     && rm -fr \
-        /tmp/* \
-        /var/{cache,log}/*
+        /tmp/*
 
 # Copy root filesystem
 COPY rootfs /
