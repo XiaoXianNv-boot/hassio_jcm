@@ -12,6 +12,7 @@ arch:
   - i386
 ingress: true
 ingress_port: 8888
+ingress_stream: true
 init: false
 map:
   - share:rw 
