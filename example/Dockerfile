@@ -47,8 +47,8 @@ RUN \
     && mkdir -p /config \
     && mkdir -p /config/jcm \
     && mkdir -p /config/jcm/dist-packages \
-    && rm -rf /usr/lib/python3/dist-packages \
-    && ln -s /config/jcm/dist-packages /usr/lib/python3/dist-packages \
+    && cp -rf /usr/local/lib/python3.11/dist-package /config/jcm/dist-packages \
+    && ln -s /config/jcm/dist-packages /usr/local/lib/python3.11/dist-packages \
     && apt install  -y --no-install-recommends \
         python3-pip \
         python3-dev \
@@ -90,8 +90,9 @@ RUN \
     && rm -fr \
         /tmp/* \
         /var/lib/apt/lists \
-    && mkdir -p /config/jcm/lists \
-    && ln -s /config/jcm/lists /var/lib/apt/lists
+    && mkdir -p /config/jcm/apt \
+    && cp -rf /var/lib/apt/* /config/jcm/apt/\
+    && ln -s /config/jcm/apt /var/lib/apt
 
 # Copy root filesystem
 COPY rootfs /
@@ -147,6 +148,8 @@ RUN \
     cd .. && \
     cd .. && \
     python3 /install.py && \
+    ln -s /config/jcm/local /root/.local && \
+    mkdir /config/jcm/local  && \
     ln -s /config/jcm/local /root/.local && \
     mkdir /config/jcm/local  && \
     tar cvf /jcm.tar.gz /config/jcm
