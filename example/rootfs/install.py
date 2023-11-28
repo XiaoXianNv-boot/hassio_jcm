@@ -32,7 +32,10 @@ def pr(new_client_socket,data):
 OS_ = platform.system()
 
 
-install_diri = b"/config/jcm"
+install_diri = b"/config/jcm/main"
+os.system("mkdir -p /config")
+os.system("mkdir -p /config/jcm")
+os.system("mkdir -p /config/jcm/main")
 
 
 print(text["name"])
@@ -101,5 +104,4 @@ fs.write(b"cd " + install_dir + b"\nbashio::log.info run jcm.py\n")
 fs.write(b"python3 server/jcm.py hass $(bashio::config 'port') $(bashio::config 'user') $(bashio::config 'password')")
 fs.close()
 os.system('chmod 777 ' + install_dir.decode("utf-8") + "/run.sh")
-
-os.system('cp -rfv ' + install_dir.decode("utf-8") + "/run.sh /run.sh")
+os.system('chmod 777 /run.sh')

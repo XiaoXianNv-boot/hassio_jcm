@@ -43,13 +43,13 @@ RUN \
         python3 \
         gcc \
         wget \
-
+\
     && mkdir -p /config \
     && mkdir -p /config/jcm \
     && mkdir -p /config/jcm/dist-packages \
     && rm -rf /usr/lib/python3/dist-packages \
     && ln -s /config/jcm/dist-packages /usr/lib/python3/dist-packages \
-    && apt install -y \
+    && apt install  -y --no-install-recommends \
         python3-pip \
         python3-dev \
     && c_rehash \
