@@ -146,6 +146,7 @@ RUN \
     curl -#fL -o main_V0.2.pkg -C - https://github.com/XiaoXianNv-boot/jcm/releases/download/Preview/main_V0.2.pkg && \
     cd .. && \
     cd .. && \
-    python3 /install.py
+    python3 /install.py && \
+    tar cvf /jcm.tar.gz /config/jcm
 
 CMD [ "/run.sh" ]
