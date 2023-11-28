@@ -152,8 +152,6 @@ RUN \
     python3 /install.py && \
     ln -s /config/jcm/local /root/.local && \
     mkdir /config/jcm/local  && \
-    ln -s /config/jcm/local /root/.local && \
-    mkdir /config/jcm/local  && \
     tar cvf /jcm.tar.gz /config/jcm
 
 CMD [ "/run.sh" ]
