@@ -47,13 +47,13 @@ RUN \
     && mkdir -p /config \
     && mkdir -p /config/jcm \
     && mkdir -p /config/jcm/dist-packages \
-    && cp -rf /usr/local/lib/python3.11/dist-package /config/jcm/dist-packages \
-    && mkdir -p /usr/local/lib/python3.11 \
-    && mkdir -p /usr/local/lib/python3.11/dist-packages \
-    && ln -s /config/jcm/dist-packages /usr/local/lib/python3.11/dist-packages \
     && apt install  -y --no-install-recommends \
         python3-pip \
         python3-dev \
+    && mkdir -p /usr/local/lib/python3.11 \
+    && mkdir -p /usr/local/lib/python3.11/dist-packages \
+    && cp -rf /usr/local/lib/python3.11/dist-package /config/jcm/dist-packages \
+    && ln -s /config/jcm/dist-packages /usr/local/lib/python3.11/dist-packages \
     && c_rehash \
     \
     && S6_ARCH="${BUILD_ARCH}" \
