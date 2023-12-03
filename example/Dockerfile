@@ -40,20 +40,7 @@ RUN \
         jq=1.6-2.1 \
         tzdata=2023c-5 \
         xz-utils=5.4.1-0.2 \
-        python3 \
-        gcc \
-        wget \
 \
-    && mkdir -p /config \
-    && mkdir -p /config/jcm \
-    && mkdir -p /config/jcm/dist-packages \
-    && apt install  -y --no-install-recommends \
-        python3-pip \
-        python3-dev \
-    && mkdir -p /usr/local/lib/python3.11 \
-    && mkdir -p /usr/local/lib/python3.11/dist-packages \
-    && cp -rf   /usr/local/lib/python3.11/dist-packages /config/jcm/dist-packages \
-    && ln -s /config/jcm/dist-packages /usr/local/lib/python3.11/dist-packages \
     && c_rehash \
     \
     && S6_ARCH="${BUILD_ARCH}" \
@@ -89,6 +76,20 @@ RUN \
     && curl -L -s -o /usr/bin/tempio \
         "https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${BUILD_ARCH}" \
     && chmod a+x /usr/bin/tempio \
+    && apt-get install -y --no-install-recommends \ 
+        python3 \
+        gcc \
+        wget \
+    && mkdir -p /config \
+    && mkdir -p /config/jcm \
+    && mkdir -p /config/jcm/dist-packages \
+    && apt install  -y --no-install-recommends \
+        python3-pip \
+        python3-dev \
+    && mkdir -p /usr/local/lib/python3.11 \
+    && mkdir -p /usr/local/lib/python3.11/dist-packages \
+    && cp -rf   /usr/local/lib/python3.11/dist-packages /config/jcm/dist-packages \
+    && ln -s /config/jcm/dist-packages /usr/local/lib/python3.11/dist-packages \
     && rm -fr \
         /tmp/* \
         /var/lib/apt/lists \
