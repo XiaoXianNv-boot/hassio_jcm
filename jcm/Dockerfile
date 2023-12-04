@@ -80,22 +80,15 @@ RUN \
         python3 \
         gcc \
         wget \
+        python3-venv \
     && mkdir -p /config \
     && mkdir -p /config/jcm \
-    && mkdir -p /config/jcm/dist-packages \
     && apt install  -y --no-install-recommends \
         python3-pip \
         python3-dev \
-    && mkdir -p /usr/local/lib/python3.11 \
-    && mkdir -p /usr/local/lib/python3.11/dist-packages \
-    && cp -rf   /usr/local/lib/python3.11/dist-packages /config/jcm/dist-packages \
-    && ln -s /config/jcm/dist-packages /usr/local/lib/python3.11/dist-packages \
     && rm -fr \
         /tmp/* \
-        /var/lib/apt/lists \
-    && mkdir -p /config/jcm/apt \
-    && cp -rf /var/lib/apt/* /config/jcm/apt/\
-    && ln -s /config/jcm/apt /var/lib/apt
+        /var/lib/apt/lists 
 
 # Copy root filesystem
 COPY rootfs /
@@ -104,7 +97,7 @@ COPY rootfs /
 COPY s6-overlay /package/admin/s6-overlay-${S6_OVERLAY_VERSION}/
 
 # Entrypoint & CMD
-#ENTRYPOINT [ "/init" ]
+ENTRYPOINT [ "/init" ]
 
 # Build arugments
 ARG BUILD_DATE
@@ -136,23 +129,7 @@ LABEL \
     org.opencontainers.image.version=${BUILD_VERSION}
 
 RUN \
-    mkdir -p jcm_install && \
-    cd jcm_install && \
-    mkdir -p Tools && \
-    cd Tools && \
-    curl -#fL -o install.py -C - https://github.com/XiaoXianNv-boot/jcm/releases/download/Preview/install.py && \
-    cd .. && \
-    mkdir -p lib && \
-    cd lib && \
-    mkdir -p pkg && \
-    cd pkg && \
-    curl -#fL -o APP_V0.2.pkg -C - https://github.com/XiaoXianNv-boot/jcm/releases/download/Preview/APP_V0.2.pkg && \
-    curl -#fL -o main_V0.2.pkg -C - https://github.com/XiaoXianNv-boot/jcm/releases/download/Preview/main_V0.2.pkg && \
-    cd .. && \
-    cd .. && \
-    python3 /install.py && \
-    ln -s /config/jcm/local /root/.local && \
-    mkdir /config/jcm/local  && \
+    bash /install.sh && \
     tar cvf /jcm.tar.gz /config/jcm
 
-CMD [ "/run.sh" ]
+#CMD [ "jcm" ]
