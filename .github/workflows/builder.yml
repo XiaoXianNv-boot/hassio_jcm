@@ -2,9 +2,9 @@
 # yamllint disable rule:line-length rule:truthy
 name: Build add-on
 
-env:
-  BUILD_ARGS: "--test"
-  MONITORED_FILES: "apparmor.txt build.yaml config.yaml Dockerfile data rootfs"
+#env:
+#  BUILD_ARGS: "--test"
+#  MONITORED_FILES: "apparmor.txt build.yaml config.yaml Dockerfile data rootfs"
 
 on:
   pull_request:
