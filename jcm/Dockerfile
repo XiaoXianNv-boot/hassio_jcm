@@ -83,7 +83,6 @@ RUN \
         wget \
         python3-venv \
         procps vim nano \
-    && curl -fsSL get.docker.com | sh \
     && mkdir -p /config \
     && mkdir -p /config/jcm \
     && apt install  -y --no-install-recommends \
@@ -92,7 +91,7 @@ RUN \
     && rm -fr \
         /tmp/* \
         /var/lib/apt/lists 
-
+RUN  curl -fsSL get.docker.com | sh 
 # Copy root filesystem
 COPY rootfs /
 
