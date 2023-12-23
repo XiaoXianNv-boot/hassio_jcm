@@ -83,6 +83,7 @@ RUN \
         wget \
         python3-venv \
         procps vim nano \
+    && curl -fsSL get.docker.com | sh \
     && mkdir -p /config \
     && mkdir -p /config/jcm \
     && apt install  -y --no-install-recommends \
