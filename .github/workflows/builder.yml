@@ -8,9 +8,9 @@ env:
 
 on:
   pull_request:
-    branches: ["master"]
+    branches: ["master" , "main" ]
   push:
-    branches: ["master"]
+    branches: ["master" , "main" ]
 
 jobs:
   init:
