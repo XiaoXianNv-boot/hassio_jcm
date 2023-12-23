@@ -1,10 +1,16 @@
-# Home Assistant Add-on: Example add-on
+# Home Assistant Add-on: JCM
 
-## How to use
+## 如何使用
 
-This add-on really does nothing. It is just an example.
+直接打开 WEB UI 使用
+或者直接打开端口
 
-When started it will print the configured message or "Hello world" in the log.
+配置信息仅供查看,更改信息暂未实现
 
-It will also print "All done!" in `/share/example_addon_output.txt` to show
-simple example of the usage of `map` in addon config.
+删除组件方法
+在组件里的终端中输入
+```
+rm /config/jcm/main -rf
+```
+然后在去home assistant删除加载项
+如果没找到终端,可在应用市场安装
