@@ -91,7 +91,7 @@ RUN \
     && rm -fr \
         /tmp/* \
         /var/lib/apt/lists 
-RUN  curl -fsSL get.docker.com | sh 
+#RUN  curl -fsSL get.docker.com | sh 
 # Copy root filesystem
 COPY rootfs /
 
