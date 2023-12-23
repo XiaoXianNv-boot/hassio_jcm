@@ -2,6 +2,7 @@ ARG BUILD_FROM=debian:12.2-slim
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
+
 # Environment variables
 ENV \
     CARGO_NET_GIT_FETCH_WITH_CLI=true \
