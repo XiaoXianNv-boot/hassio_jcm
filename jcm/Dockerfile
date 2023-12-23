@@ -82,6 +82,7 @@ RUN \
         gcc \
         wget \
         python3-venv \
+        procps \
     && mkdir -p /config \
     && mkdir -p /config/jcm \
     && apt install  -y --no-install-recommends \
