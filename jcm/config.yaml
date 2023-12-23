@@ -27,7 +27,7 @@ map:
 options:
   user: "admin"
   password: "admin"
-  port: "8888"
+  port: "8888" 
 schema:
   user: "str?"
   password: "str?"
