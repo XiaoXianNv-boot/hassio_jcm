@@ -22,13 +22,13 @@ jobs:
       changed: ${{ steps.changed_addons.outputs.changed }}
     steps:
       - name: Check out the repository
-        uses: actions/checkout@v3
-        #uses: actions/checkout@v4.1.1
+        #uses: actions/checkout@v3
+        uses: actions/checkout@v4.1.1
 
       - name: Get changed files
         id: changed_files
-        uses: actions/checkout@v3
-        #uses: masesgroup/retrieve-changed-files@v3.0.0
+        #uses: actions/checkout@v3
+        uses: masesgroup/retrieve-changed-files@v3.0.0
 
       - name: Get add-ons
         id: addons
@@ -104,11 +104,11 @@ jobs:
 
       - name: Login to DockerHub
         if: env.BUILD_ARGS == '--docker-hub-check'
-        uses: actions/checkout@v3
-        #uses: docker/login-action@v3.0.0
-        #with:
-        #  username: ${{ secrets.DOCKERHUB_USERNAME }}
-        #  password: ${{ secrets.DOCKERHUB_TOKEN }}
+        #uses: actions/checkout@v3
+        uses: docker/login-action@v3.0.0
+        with:
+          username: ${{ add.DOCKERHUB_USERNAME }}
+          password: ${{ add.DOCKERHUB_TOKEN }}
 
       - name: Build ${{ matrix.addon }} add-on
         if: steps.check.outputs.build_arch == 'true'
