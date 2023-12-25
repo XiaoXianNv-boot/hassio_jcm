@@ -1,9 +1,10 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: jcm
-version: "1.0.2"
+version: "1.0.3"
 slug: jcm
 description: Jiang Cluster Management
 url: "https://github.com/XiaoXianNv-boot/hassio_jcm"
+startup: system
 arch:
   - armhf
   - armv7
@@ -14,6 +15,19 @@ ingress: true
 ingress_port: 8888
 ingress_stream: true
 init: false
+uart: true
+udev: true
+usb: true
+hassio_api: true
+hassio_role: admin
+homeassistant_api: true
+docker_api: true
+privileged: SYS_ADMIN
+full_access: true
+audio: true
+video: true
+stdin: true
+auth_api: true
 image: xiaoxiannvboot/{arch}-hassio_jcm
 map:
   - share:rw 
@@ -35,3 +49,4 @@ schema:
   port: "str?"
 advanced: false
 host_network: true
+
