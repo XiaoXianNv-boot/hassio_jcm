@@ -30,7 +30,7 @@ ARG BASHIO_VERSION="v0.16.0"
 ARG S6_OVERLAY_VERSION="3.1.6.2"
 ARG TEMPIO_VERSION="2021.09.0"
 RUN \
-     apt-get update \
+    apt-get update \
     && mkdir -p /config\
     && mkdir -p /config\
     && mkdir -p /config\
