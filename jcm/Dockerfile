@@ -31,17 +31,16 @@ ARG S6_OVERLAY_VERSION="3.1.6.2"
 ARG TEMPIO_VERSION="2021.09.0"
 RUN \
     apt-get update \
-    && mkdir -p /config\
-    && mkdir -p /config\
-    && mkdir -p /config\
+    && mkdir -p /config \
+    && mkdir -p /config \
+    && mkdir -p /config \
     && apt-get install -y --no-install-recommends \
         bash=5.2.15-2+b2 \
         ca-certificates=20230311 \
-        curl=7.88.1-10+deb12u4 \
+        curl \
         jq=1.6-2.1 \
         tzdata=2023c-5 \
         xz-utils=5.4.1-0.2 \
-\
     && c_rehash \
     \
     && S6_ARCH="${BUILD_ARCH}" \
