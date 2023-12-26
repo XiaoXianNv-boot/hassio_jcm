@@ -1,5 +1,9 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+## 1.0.4
+
+- 添加 docker 指令 终端组件可以使用
+
 ## 1.0.3
 
 - 添加系统控制权限,修复了翻译
