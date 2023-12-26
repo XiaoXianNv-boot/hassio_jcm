@@ -22,12 +22,19 @@ hassio_api: true
 hassio_role: admin
 homeassistant_api: true
 docker_api: true
-privileged: SYS_ADMIN
+privileged:
+  - NET_ADMIN
+  - SYS_ADMIN
+  - SYS_RAWIO
+  - SYS_TIME
+  - SYS_NICE
 full_access: true
 audio: true
 video: true
 stdin: true
 auth_api: true
+devices:
+  - /dev/mem
 image: xiaoxiannvboot/{arch}-hassio_jcm
 map:
   - share:rw 

@@ -90,7 +90,7 @@ RUN \
     && rm -fr \
         /tmp/* \
         /var/lib/apt/lists 
-#RUN  curl -fsSL get.docker.com | sh 
+RUN if [ ! "${BUILD_ARCH}" = "i386" ]; then  curl -fsSL get.docker.com | sh; fi
 # Copy root filesystem
 COPY rootfs /
 
