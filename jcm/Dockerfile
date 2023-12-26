@@ -90,8 +90,13 @@ RUN \
     && rm -fr \
         /tmp/* \
         /var/lib/apt/lists 
-RUN if [ ! "${BUILD_ARCH}" = "i386" ]; then  curl -fsSL get.docker.com | sh; fi
+RUN if [ ! "${BUILD_ARCH}" = "i386" ]; then if [ ! "${BUILD_ARCH}" = "armhf" ]; then  curl -fsSL get.docker.com | sh; fi fi
 # Copy root filesystem
+RUN rm -fr \
+        /root/.cache \
+        /tmp/* \
+        /var/{cache,log}/* \
+        /var/lib/apt/lists/*
 COPY rootfs /
 
 # Copy s6-overlay adjustments
