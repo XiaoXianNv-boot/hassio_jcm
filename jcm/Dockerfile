@@ -76,7 +76,7 @@ RUN \
     && curl -L -s -o /usr/bin/tempio \
         "https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${BUILD_ARCH}" \
     && chmod a+x /usr/bin/tempio \
-    && apt-get install -y --no-install-recommends \ 
+    && apt-get install -y --no-install-recommends \
         python3 \
         gcc \
         wget \
@@ -89,7 +89,7 @@ RUN \
         python3-dev \
     && rm -fr \
         /tmp/* \
-        /var/lib/apt/lists 
+        /var/lib/apt/lists
 RUN if [ ! "${BUILD_ARCH}" = "i386" ]; then if [ ! "${BUILD_ARCH}" = "armhf" ]; then  curl -fsSL get.docker.com | sh; fi fi
 # Copy root filesystem
 RUN rm -fr \
@@ -135,7 +135,6 @@ LABEL \
     org.opencontainers.image.version=${BUILD_VERSION}
 
 RUN \
-    bash /install.sh && \
-    tar cvf /jcm.tar.gz /config/jcm
+    bash /install.sh
 
 #CMD [ "jcm" ]
