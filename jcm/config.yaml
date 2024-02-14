@@ -35,9 +35,10 @@ stdin: true
 auth_api: true
 devices:
   - /dev/mem
+  - /etc/timezone
 image: xiaoxiannvboot/{arch}-hassio_jcm
 map:
-  - share:rw 
+  - share:rw
   - homeassistant_config:rw
   - media:rw
   - addon_config:rw
@@ -49,7 +50,7 @@ map:
 options:
   user: "admin"
   password: "admin"
-  port: "8888" 
+  port: "8888"
 schema:
   user: "str?"
   password: "str?"
