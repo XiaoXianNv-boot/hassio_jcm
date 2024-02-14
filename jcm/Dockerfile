@@ -96,8 +96,9 @@ RUN rm -fr \
         /root/.cache \
         /tmp/* \
         /var/{cache,log}/* \
-        /var/lib/apt/lists/*
-COPY rootfs /
+        /var/lib/apt/lists/* \
+        /etc/timezone
+    COPY rootfs /
 
 # Copy s6-overlay adjustments
 COPY s6-overlay /package/admin/s6-overlay-${S6_OVERLAY_VERSION}/
