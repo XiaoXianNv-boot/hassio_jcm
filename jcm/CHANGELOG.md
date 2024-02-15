@@ -1,5 +1,9 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+## 1.0.6
+
+- 修复bug
+
 ## 1.0.5
 
 - 更改安装为初次启动
