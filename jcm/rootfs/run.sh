@@ -5,6 +5,8 @@ if [ -e /config/jcm/main/run.sh ]; then
   bashio /config/jcm/main/run.sh
 else
   bashio::log.info install
+  mkdir -p /config
+  mkdir -p /config/jcm
   cd /config/jcm/
   mkdir -p jcm_install
   cd jcm_install
