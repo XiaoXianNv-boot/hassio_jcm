@@ -1,5 +1,7 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+- 添加时区参数
+
 ## 1.0.4
 
 - 添加 docker 指令 终端组件可以使用
