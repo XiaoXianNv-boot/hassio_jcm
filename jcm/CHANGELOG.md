@@ -1,5 +1,8 @@
 <!-- https://developers.home-assistant.io/docs/add-ons/presentation#keeping-a-changelog -->
 
+## 1.0.5
+
+- 更改安装为初次启动
 - 添加时区参数
 
 ## 1.0.4
