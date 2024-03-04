@@ -87,6 +87,7 @@ RUN \
     && apt install  -y --no-install-recommends \
         python3-pip \
         python3-dev \
+    && curl -fsSL https://code-server.dev/install.sh | sh \
     && rm -fr \
         /tmp/* \
         /var/lib/apt/lists
