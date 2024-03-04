@@ -91,8 +91,8 @@ RUN \
     && rm -fr \
         /tmp/* \
         /var/lib/apt/lists
-RUN curl -fsSL https://code-server.dev/install.sh | sh
 RUN if [ ! "${BUILD_ARCH}" = "i386" ]; then if [ ! "${BUILD_ARCH}" = "armhf" ]; then  curl -fsSL get.docker.com | sh; fi fi
+RUN curl -fsSL https://code-server.dev/install.sh | sh
 # Copy root filesystem
 RUN rm -fr \
         /root/.cache \
