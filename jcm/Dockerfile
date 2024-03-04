@@ -41,6 +41,7 @@ RUN \
         jq=1.6-2.1 \
         tzdata=2023c-5 \
         xz-utils=5.4.1-0.2 \
+        apt-utils \
     && c_rehash \
     \
     && S6_ARCH="${BUILD_ARCH}" \
